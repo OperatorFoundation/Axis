@@ -14,10 +14,44 @@ struct PointSet
     let label: String
     let color: Color
     let points: [Point]
+    var onClickHandler: ClickHandler?
+    {
+        didSet
+        {
+            if let handler = onClickHandler
+            {
+                for var point in points
+                {
+                    point.onClickHandler = handler
+                }
+            }
+        }
+    }
     
     var legendItem: LegendItem
     {
         return LegendItem(color: color, text: label)
+    }
+}
+
+extension PointSet
+{
+    var pairs: [(Point, Point)]
+    {
+        var results: [(Point, Point)] = []
+        var maybePrevious: Point? = nil
+        
+        for point in self.points
+        {
+            if let previous = maybePrevious
+            {
+                results.append((previous, point))
+            }
+            
+            maybePrevious = point
+        }
+        
+        return results
     }
 }
 

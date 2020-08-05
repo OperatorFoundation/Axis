@@ -6,16 +6,32 @@ struct LineChart: View
     let pointsets: [PointSet]
     let xrange: Range<Int>
     let yrange: Range<Int>
+    var onClickHandler: ClickHandler?
+    {
+        didSet
+        {
+            if let handler = onClickHandler
+            {
+                for var pointset in pointsets
+                {
+                    pointset.onClickHandler = handler
+                }
+            }
+        }
+    }
     
     var body: some View
     {
         VStack
         {
-            ForEach(pointsets, id: \.self)
+            ZStack
             {
-                Line(datapoints: $0)
+                ForEach(pointsets, id: \.id)
+                {
+                    LineChartLinesAndPoints(pointset: $0)
+                }
             }
-            
+                
             Legend(items: pointsets.map({$0.legendItem}))
         }
     }
