@@ -1,3 +1,3 @@
 # Axis
 
-A description of this package.
+A SwiftUI chart library
