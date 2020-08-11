@@ -1,12 +1,12 @@
 import Foundation
 import SwiftUI
 
-struct LineChart: View
+public struct LineChart: View
 {
-    let pointsets: [PointSet]
-    let xrange: Range<Int>
-    let yrange: Range<Int>
-    var onClickHandler: ClickHandler?
+    public let pointsets: [PointSet]
+    public let xrange: Range<Int>
+    public let yrange: Range<Int>
+    public var onClickHandler: ClickHandler?
     {
         didSet
         {
@@ -20,7 +20,7 @@ struct LineChart: View
         }
     }
     
-    var body: some View
+    public var body: some View
     {
         VStack
         {

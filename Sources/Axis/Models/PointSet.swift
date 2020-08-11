@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct PointSet
+public struct PointSet
 {
-    let id: String
-    let label: String
-    let color: Color
-    let points: [Point]
-    var onClickHandler: ClickHandler?
+    public let id: String
+    public let label: String
+    public let color: Color
+    public let points: [Point]
+    public var onClickHandler: ClickHandler?
     {
         didSet
         {
@@ -28,7 +28,7 @@ struct PointSet
         }
     }
     
-    var legendItem: LegendItem
+    public var legendItem: LegendItem
     {
         return LegendItem(color: color, text: label)
     }
@@ -36,7 +36,7 @@ struct PointSet
 
 extension PointSet
 {
-    var pairs: [(Point, Point)]
+    public var pairs: [(Point, Point)]
     {
         var results: [(Point, Point)] = []
         var maybePrevious: Point? = nil
@@ -57,12 +57,12 @@ extension PointSet
 
 extension PointSet: Hashable
 {
-    static func == (lhs: PointSet, rhs: PointSet) -> Bool
+    public static func == (lhs: PointSet, rhs: PointSet) -> Bool
     {
         return lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher)
+    public func hash(into hasher: inout Hasher)
     {
         hasher.combine(self.id)
     }

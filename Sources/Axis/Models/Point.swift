@@ -8,23 +8,23 @@
 import Foundation
 import SwiftUI
 
-typealias ClickHandler = (Point) -> Void
+public typealias ClickHandler = (Point) -> Void
 
-struct Point
+public struct Point
 {
-    let x: Int
-    let y: Int
-    let id: UUID
-    let color: Color
-    let size: Int
-    var onClickHandler: ClickHandler?
+    public let x: Int
+    public let y: Int
+    public let id: UUID
+    public let color: Color
+    public let size: Int
+    public var onClickHandler: ClickHandler?
     
-    var cgpoint: CGPoint
+    public var cgpoint: CGPoint
     {
         return CGPoint(x: self.x, y: self.y)
     }
     
-    init(x: Int, y: Int)
+    public init(x: Int, y: Int)
     {
         self.x = x
         self.y = y
@@ -36,12 +36,12 @@ struct Point
 
 extension Point: Hashable
 {
-    static func == (lhs: Point, rhs: Point) -> Bool
+    public static func == (lhs: Point, rhs: Point) -> Bool
     {
         return lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher)
+    public func hash(into hasher: inout Hasher)
     {
         hasher.combine(self.id)
     }
@@ -49,7 +49,7 @@ extension Point: Hashable
 
 extension Point: View
 {
-    var body: some View
+    public var body: some View
     {
         Circle()
         .fill(color)
@@ -58,7 +58,7 @@ extension Point: View
         .onTapGesture(perform: self.onClick)
     }
     
-    func onClick()
+    public func onClick()
     {
         if let handler = self.onClickHandler
         {

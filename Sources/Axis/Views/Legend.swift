@@ -8,22 +8,22 @@
 import Foundation
 import SwiftUI
 
-struct Legend: View
+public struct Legend: View
 {
-    var items: [LegendItem]
+    public var items: [LegendItem]
     
-    var body: some View
+    public var body: some View
     {
         Text("test")
     }
 }
 
-struct LegendItem: View
+public struct LegendItem: View
 {
-    let color: Color
-    let text: String
+    public let color: Color
+    public let text: String
     
-    var body: some View
+    public var body: some View
     {
         HStack
         {

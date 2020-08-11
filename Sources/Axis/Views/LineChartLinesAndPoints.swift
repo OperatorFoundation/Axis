@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct LineChartLinesAndPoints: View
+public struct LineChartLinesAndPoints: View
 {
-    let pointset: PointSet
+    public let pointset: PointSet
     
-    var body: some View
+    public var body: some View
     {
         ZStack
         {
@@ -22,11 +22,11 @@ struct LineChartLinesAndPoints: View
     }
 }
 
-struct LineChartLines: View
+public struct LineChartLines: View
 {
-    let pointset: PointSet
+    public let pointset: PointSet
     
-    var body: some View
+    public var body: some View
     {
         Path
         {
@@ -43,11 +43,11 @@ struct LineChartLines: View
     }
 }
 
-struct LineChartPoints: View
+public struct LineChartPoints: View
 {
-    let pointset: PointSet
+    public let pointset: PointSet
     
-    var body: some View
+    public var body: some View
     {
         ForEach(pointset.points, id: \.id)
         {
