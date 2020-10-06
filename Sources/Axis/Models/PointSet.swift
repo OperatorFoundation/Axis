@@ -32,6 +32,14 @@ public struct PointSet
     {
         return LegendItem(color: color, text: label)
     }
+    
+    public init(id: String, label: String, color: Color, points: [Point])
+    {
+        self.id = id
+        self.label = label
+        self.color = color
+        self.points = points
+    }
 }
 
 extension PointSet

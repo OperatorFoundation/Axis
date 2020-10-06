@@ -35,6 +35,13 @@ public struct LineChart: View
             Legend(items: pointsets.map({$0.legendItem}))
         }
     }
+    
+    public init(pointsets: [PointSet], xrange: Range<Int>, yrange: Range<Int>)
+    {
+        self.pointsets = pointsets
+        self.xrange = xrange
+        self.yrange = yrange
+    }
 }
 
 struct LineChart_Previews: PreviewProvider {
